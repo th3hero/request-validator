@@ -1,0 +1,11 @@
+{
+  "name": "request-validator",
+  "version": "1.0.0",
+  "description": "A package using which we can validate request sent to the server with multiple scenarios & validations in a form of object, with proper error messages & all.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alok Kumar - th3hero",
+  "license": "ISC"
+}
