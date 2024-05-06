@@ -1,6 +1,6 @@
 {
   "name": "@th3hero/request-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package using which we can validate request sent to the server with multiple scenarios & validations in a form of object, with proper error messages & all.",
   "main": "index.js",
   "scripts": {
