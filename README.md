@@ -4,7 +4,7 @@
 The **@th3hero/request-validator** is a Node.js module for validating incoming HTTP requests, ensuring that the provided data meets specified rules and requirements.
 
 
-## Authors
+## Author
 
 - [@GitHub](https://github.com/th3hero)
 - [@LinkedIn](https://www.linkedin.com/in/thealokkumarsingh/)
