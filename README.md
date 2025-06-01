@@ -2,6 +2,9 @@
 
 A powerful and flexible request validation library for Node.js applications, built with TypeScript. This library provides a comprehensive set of validation rules and supports both synchronous and asynchronous validation.
 
+[![npm version](https://img.shields.io/npm/v/@th3hero/request-validator.svg)](https://www.npmjs.com/package/@th3hero/request-validator)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
@@ -122,6 +125,9 @@ app.post('/upload', async (req: Request, res) => {
 | `required` | Field must be present and not empty | `username: 'required'` | "username is required" |
 | `nullable` | Field can be null or undefined | `middle_name: 'nullable'` | - |
 | `not-empty` | Field cannot be empty | `description: 'not-empty'` | "description cannot be empty" |
+| `numeric` | Field must be a number | `age: 'numeric'` | "age must be a number" |
+| `confirmed` | Field must have a matching confirmation field | `password: 'confirmed'` | "password must be confirmed" |
+| `digits:length` | Field must contain exactly the specified number of digits | `phone: 'digits:10'` | "phone must be exactly 10 digits" |
 
 ### String Rules
 
@@ -152,6 +158,7 @@ app.post('/upload', async (req: Request, res) => {
 |------|-------------|---------|---------------|
 | `file` | Must be a file upload | `profile_picture: 'file'` | "profile_picture is required" |
 | `mimetype:types` | Valid MIME types | `avatar: 'mimetype:image/jpeg,image/png'` | "Invalid file format for avatar. Supported media types are image/jpeg, image/png" |
+| `max_size:size` | File size must not exceed the specified size | `avatar: 'max_size:2048'` | "avatar file size must not exceed 2048 bytes" |
 
 ### Database Rules
 
@@ -432,3 +439,7 @@ npm run test:coverage
 # Run tests in watch mode
 npm run test:watch
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
