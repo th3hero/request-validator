@@ -5,6 +5,7 @@ A powerful and flexible request validation library for Node.js applications, bui
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
+- [Dependencies](#dependencies)
 - [Quick Start](#quick-start)
 - [Validation Rules](#validation-rules)
 - [Database Integration](#database-integration)
@@ -20,9 +21,8 @@ A powerful and flexible request validation library for Node.js applications, bui
 ## Features
 
 - 🚀 **Simple Function-Based API**: Easy to use with a clean, intuitive interface
-- 📦 **Zero Dependencies**: Lightweight and fast
 - 🔍 **Comprehensive Validation Rules**: Over 20 built-in validation rules
-- 🎯 **Database Integration**: Built-in support for unique/exists validations
+- 🎯 **Database Integration**: Built-in support for unique/exists validations with MySQL
 - 📁 **File Upload Validation**: Support for file uploads with MIME type checking
 - 🧪 **Extensive Test Coverage**: Thoroughly tested with Jest
 - ⚡️ **High Performance**: Optimized for speed and efficiency
@@ -30,6 +30,7 @@ A powerful and flexible request validation library for Node.js applications, bui
 - 📝 **TypeScript Support**: Full TypeScript support with type definitions
 - 🔄 **Async Validation**: Support for asynchronous validation rules
 - 🎨 **Customizable**: Easy to extend with custom validation rules
+- 🛠️ **Zero External Validation Dependencies**: Custom-built validation functions
 
 ## Installation
 
@@ -43,6 +44,25 @@ yarn add @th3hero/request-validator
 # Using pnpm
 pnpm add @th3hero/request-validator
 ```
+
+## Dependencies
+
+This library has the following dependencies:
+
+### Core Dependencies
+- `express` (^4.18.2) - For request handling and types
+
+### Optional Dependencies
+- `mysql` (^2.18.1) - For database validations (only required if using database validation rules)
+
+### Development Dependencies
+- TypeScript and related type definitions
+- Jest for testing
+- Various type definitions for better TypeScript support
+
+Note: While the library has these dependencies, they are only required if you use the specific features that need them. For example:
+- MySQL is only required if you use database validation rules (unique/exists)
+- Express is only required if you're using it in an Express.js application
 
 ## Quick Start
 
@@ -154,43 +174,29 @@ app.post('/upload', async (req: Request, res) => {
 
 ## Database Integration
 
-### Setup
+The library provides optional database validation rules that require MySQL. To use these features:
 
+1. Install MySQL:
+```bash
+npm install mysql
+```
+
+2. Set up the database connection:
 ```typescript
 import { setDatabase } from '@th3hero/request-validator';
-import { createPool } from 'mysql';
+import mysql from 'mysql';
 
-// Create database connection
-const pool = createPool({
+const pool = mysql.createPool({
     host: 'localhost',
-    user: 'user',
-    password: 'password',
-    database: 'database'
+    user: 'your_username',
+    password: 'your_password',
+    database: 'your_database'
 });
 
-// Set database connection
 setDatabase(pool);
 ```
 
-### Usage with Database Rules
-
-```typescript
-const rules = {
-    email: 'required|email|unique:users,email',
-    user_id: 'required|exists:users,id',
-    role_id: 'required|exists:roles,id'
-};
-
-app.post('/users', async (req: Request, res) => {
-    const result = await validateInput(req, rules);
-    
-    if (result.failed) {
-        return res.status(400).json({ errors: result.errors });
-    }
-    
-    // Process valid request...
-});
-```
+If you try to use database validation rules without setting up the database connection, the library will throw an error with a helpful message.
 
 ## File Upload Validation
 
@@ -426,13 +432,3 @@ npm run test:coverage
 # Run tests in watch mode
 npm run test:watch
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-- [@GitHub](https://github.com/th3hero)
-- [@LinkedIn](https://www.linkedin.com/in/thealokkumarsingh/)
-- [@Instagram](https://www.instagram.com/thealokkumarsingh/)

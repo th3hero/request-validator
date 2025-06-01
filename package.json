@@ -1,44 +1,66 @@
 {
   "name": "@th3hero/request-validator",
-  "version": "1.1.0",
-  "description": "A TypeScript request validator for Node.js and Next.js applications",
+  "version": "1.1.1",
+  "description": "A powerful and flexible request validation library for Node.js applications, built with TypeScript. This library provides a comprehensive set of validation rules and supports both synchronous and asynchronous validation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
+    "prebuild": "npm run clean",
     "build": "tsc",
     "prepare": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "tsc --noEmit",
-    "clean": "rimraf dist coverage"
+    "clean": "rimraf dist coverage .idea",
+    "prepublishOnly": "npm run test && npm run lint",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "validator",
     "request-validator",
     "typescript",
     "nodejs",
-    "nextjs"
+    "nextjs",
+    "express",
+    "validation",
+    "input-validation",
+    "form-validation"
   ],
   "author": "Alok Kumar Singh",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "moment": "^2.29.4",
-    "mysql": "^2.18.1",
-    "sequelize": "^6.31.0"
+    "express": "^4.18.2"
+  },
+  "optionalDependencies": {
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.0",
-    "@types/moment": "^2.13.0",
     "@types/mysql": "^2.15.21",
     "@types/node": "^18.15.11",
-    "@types/sequelize": "^4.28.15",
     "jest": "^29.5.0",
+    "prettier": "^3.0.0",
     "rimraf": "^4.4.1",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4"
-  }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/th3hero/request-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/th3hero/request-validator/issues"
+  },
+  "homepage": "https://github.com/th3hero/request-validator#readme"
 }
