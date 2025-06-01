@@ -27,3 +27,22 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf node_modules
+          rm -rf dist
+          rm -rf coverage
+          rm -rf .nyc_output
+          rm -f package-lock.json
+          rm -f yarn.lock
+          rm -f pnpm-lock.yaml
+          rm -f .npmrc
+          rm -f .yarnrc
+          rm -f .pnpmrc
+          rm -f .env*
+          rm -f *.log
+          rm -f .DS_Store
+          rm -f Thumbs.db
+        
