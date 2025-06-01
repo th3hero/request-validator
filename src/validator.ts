@@ -5,7 +5,7 @@ import {
     ValidationResult,
     ExtendedRequest,
 } from './types';
-import { isEmail, isURL, isDate } from './utils/validators';
+import {isEmail, isURL, isDate} from './utils/validators';
 
 let dbPool: Pool | null = null;
 
@@ -70,6 +70,11 @@ export const validateInput = async (req: ExtendedRequest, rules: ValidationRules
                         errors[field] = `${field} cannot be empty`;
                     }
                     break;
+                case 'digits':
+                    if (value.length !== parseInt(params[0])) {
+                        errors[field] = `${field} must be exactly ${params[0]} digits long`;
+                    }
+                    break;
                 case 'min':
                     if (value && value.length < parseInt(params[0])) {
                         errors[field] = `${field} must be at least ${params[0]} characters long`;
@@ -88,7 +93,9 @@ export const validateInput = async (req: ExtendedRequest, rules: ValidationRules
                         const [table, column] = params[0].split(',');
                         await new Promise((resolve, reject) => {
                             db.query(
-                                `SELECT COUNT(*) as count FROM ${table} WHERE ${column} = ?`,
+                                `SELECT COUNT(*) as count
+                                 FROM ${table}
+                                 WHERE ${column} = ?`,
                                 [value],
                                 (err, results) => {
                                     if (err) reject(err);
@@ -109,7 +116,9 @@ export const validateInput = async (req: ExtendedRequest, rules: ValidationRules
                         const [table, column] = params[0].split(',');
                         await new Promise((resolve, reject) => {
                             db.query(
-                                `SELECT COUNT(*) as count FROM ${table} WHERE ${column} = ?`,
+                                `SELECT COUNT(*) as count
+                                 FROM ${table}
+                                 WHERE ${column} = ?`,
                                 [value],
                                 (err, results) => {
                                     if (err) reject(err);
