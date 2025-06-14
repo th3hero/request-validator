@@ -2,6 +2,28 @@
   "name": "@th3hero/request-validator",
   "version": "1.1.4",
   "description": "A powerful and flexible request validation library for Node.js applications, built with TypeScript. This library provides a comprehensive set of validation rules and supports both synchronous and asynchronous validation.",
+  "keywords": [
+    "validator",
+    "request-validator",
+    "typescript",
+    "nodejs",
+    "nextjs",
+    "express",
+    "validation",
+    "input-validation",
+    "form-validation"
+  ],
+  "homepage": "https://github.com/th3hero/request-validator#readme",
+  "bugs": {
+    "url": "https://github.com/th3hero/request-validator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/th3hero/request-validator.git"
+  },
+  "license": "MIT",
+  "author": "Alok Kumar",
+  "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -22,24 +44,8 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "validator",
-    "request-validator",
-    "typescript",
-    "nodejs",
-    "nextjs",
-    "express",
-    "validation",
-    "input-validation",
-    "form-validation"
-  ],
-  "author": "Alok Kumar Singh",
-  "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
-  },
-  "optionalDependencies": {
-    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
@@ -52,17 +58,12 @@
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4"
   },
+  "optionalDependencies": {
+    "mysql": "^2.18.1"
+  },
   "engines": {
     "node": ">=14.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/th3hero/request-validator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/th3hero/request-validator/issues"
-  },
-  "homepage": "https://github.com/th3hero/request-validator#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }
