@@ -4,9 +4,6 @@
   "description": "A powerful and flexible request validation library for Node.js applications, built with TypeScript. This library provides a comprehensive set of validation rules and supports both synchronous and asynchronous validation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "files": [
     "dist",
     "README.md",
@@ -65,5 +62,8 @@
   "bugs": {
     "url": "https://github.com/th3hero/request-validator/issues"
   },
-  "homepage": "https://github.com/th3hero/request-validator#readme"
+  "homepage": "https://github.com/th3hero/request-validator#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
