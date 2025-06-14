@@ -1,28 +1,34 @@
-name: Publish to NPM
+name: Publish Over NPM
 
 on:
+  push:
+    branches: [ main ]
   release:
-    types: [created]
+    types: [ created ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Build
         run: npm run build
-      
+
+      - name: Create .npmrc file
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" >> .npmrc
+
       - name: Publish to NPM
-        run: npm publish
+        run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} 

@@ -1,8 +1,10 @@
-name: Publish Package
+name: Publish Over Github Packages
 
 on:
+  push:
+    branches: [ main ]
   release:
-    types: [created]
+    types: [ created ]
 
 jobs:
   build:
@@ -12,26 +14,26 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@th3hero'
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Build
         run: npm run build
-      
+
       - name: Create .npmrc file
         run: |
           echo "@th3hero:registry=https://npm.pkg.github.com/" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> .npmrc
-      
+
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}} 
