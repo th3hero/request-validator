@@ -1,8 +1,6 @@
 name: Publish Over NPM
 
 on:
-  push:
-    branches: [ main ]
   release:
     types: [ created ]
 

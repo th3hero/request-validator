@@ -1,8 +1,6 @@
 name: Publish Over Github Packages
 
 on:
-  push:
-    branches: [ main ]
   release:
     types: [ created ]
 
