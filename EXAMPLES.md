@@ -199,7 +199,7 @@ app.post('/orders', async (req: Request, res) => {
 
 ## 📚 More Examples
 
-- [Express.js Integration Examples](./examples/express.md)
-- [Next.js API Routes](./examples/nextjs.md)
-- [Fastify Plugin Examples](./examples/fastify.md)
-- [Testing Examples](./examples/testing.md) 
+<!-- Link to Express.js Integration Examples removed -->
+<!-- Link to Next.js API Routes removed -->
+<!-- Link to Fastify Plugin Examples removed -->
+<!-- Link to Testing Examples removed -->
