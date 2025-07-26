@@ -2,7 +2,7 @@ name: Publish Over Github Packages
 
 on:
   release:
-    types: [ created ]
+    types: [created]
 
 jobs:
   build:
@@ -29,9 +29,9 @@ jobs:
       - name: Create .npmrc file
         run: |
           echo "@th3hero:registry=https://npm.pkg.github.com/" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
       - name: Publish to GitHub Packages
         run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}} 
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

@@ -1,17 +1,38 @@
 {
   "name": "@th3hero/request-validator",
-  "version": "1.1.7",
-  "description": "A powerful and flexible request validation library for Node.js applications, built with TypeScript. This library provides a comprehensive set of validation rules and supports both synchronous and asynchronous validation.",
+  "version": "1.1.8",
+  "description": "🚀 Lightweight, fast & flexible request validation library for Node.js/Express/Next.js with TypeScript support. Features 20+ validation rules, database integration, file upload validation, and zero external dependencies. Perfect for API validation, form validation, and input sanitization.",
   "keywords": [
     "validator",
     "request-validator",
-    "typescript",
-    "nodejs",
-    "nextjs",
-    "express",
+    "express-validator",
     "validation",
     "input-validation",
-    "form-validation"
+    "form-validation",
+    "api-validation",
+    "typescript",
+    "nodejs",
+    "express",
+    "nextjs",
+    "fastify",
+    "koa",
+    "middleware",
+    "sanitization",
+    "data-validation",
+    "schema-validation",
+    "joi-alternative",
+    "yup-alternative",
+    "express-validation",
+    "request-sanitization",
+    "input-sanitization",
+    "database-validation",
+    "file-validation",
+    "async-validation",
+    "custom-validators",
+    "validation-rules",
+    "validation-middleware",
+    "api-security",
+    "input-security"
   ],
   "homepage": "https://github.com/th3hero/request-validator#readme",
   "bugs": {
@@ -22,7 +43,11 @@
     "url": "git+https://github.com/th3hero/request-validator.git"
   },
   "license": "MIT",
-  "author": "Alok Kumar",
+  "author": {
+    "name": "Alok Kumar",
+    "email": "thealokkumarsingh@gmail.com",
+    "url": "https://github.com/th3hero"
+  },
   "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -66,5 +91,15 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/th3hero"
+  },
+  "maintainers": [
+    {
+      "name": "Alok Kumar",
+      "email": "thealokkumarsingh@gmail.com"
+    }
+  ]
 }
