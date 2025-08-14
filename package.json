@@ -1,7 +1,7 @@
 {
   "name": "@th3hero/request-validator",
-  "version": "1.1.8",
-  "description": "🚀 Lightweight, fast & flexible request validation library for Node.js/Express/Next.js with TypeScript support. Features 20+ validation rules, database integration, file upload validation, and zero external dependencies. Perfect for API validation, form validation, and input sanitization.",
+  "version": "1.1.9",
+  "description": "\ud83d\ude80 Lightweight, fast & flexible request validation library for Node.js/Express/Next.js with TypeScript support. Features 20+ validation rules, database integration, file upload validation, and zero external dependencies. Perfect for API validation, form validation, and input sanitization.",
   "keywords": [
     "validator",
     "request-validator",
@@ -58,7 +58,7 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc",
+    "build": "node api.js && tsc",
     "prepare": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
