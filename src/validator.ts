@@ -61,7 +61,7 @@ export const validateInput = async (
           break;
         }
         case 'required':
-          if (value === null || value === undefined || (typeof value === 'string' && value === '')) {
+          if (value === null || value === undefined || (typeof value === 'string' && value.trim() === '')) {
             errors[field] = `${field} is required`;
           }
           break;
